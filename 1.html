@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תודה על תגובתך</title>
+    <!-- Favicon links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --twist-red: #c7403a;
+            --twist-teal: #65a595;
+            --twist-white: #ffffff;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--twist-white);
+            color: #333;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* אנימציות רקע - תנועה עדינה ועצמאית (ללא עכבר) */
+        .bg-blob {
+            position: fixed;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.15;
+            border-radius: 50%;
+            animation: move 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(60px, 40px) scale(1.15); }
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background-color: var(--twist-red);
+            top: -100px;
+            left: -100px;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background-color: var(--twist-teal);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: -5s;
+        }
+
+        /* אנימציות כניסה */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* אפקטים של כפתורים */
+        .btn-twist {
+            background-color: var(--twist-red);
+            color: white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(199, 64, 58, 0.3);
+        }
+
+        .btn-twist:hover {
+            background-color: var(--twist-teal);
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 8px 25px rgba(101, 165, 149, 0.4);
+        }
+
+        .logo-container {
+            transition: transform 0.5s ease;
+        }
+
+        .logo-container:hover {
+            transform: rotate(-2deg) scale(1.05);
+        }
+
+        /* אלמנטים דקורטיביים */
+        .twist-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--twist-red), var(--twist-teal));
+            border-radius: 2px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+
+    <!-- רקע דינאמי -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+
+    <!-- לוגו ממורכז תופס שליש מהדף -->
+    <div class="flex justify-center items-center w-full mt-8 mb-8">
+        <img src="logo_no_color.png" 
+             alt="טוויסט לוגו" 
+             style="width:33vw;max-width:400px;min-width:120px;"
+             class="object-contain mx-auto">
+    </div>
+
+    <main class="max-w-2xl w-full z-10">
+        <!-- אייקון מעוצב -->
+        <div class="mb-8 fade-in-up">
+            <svg class="w-20 h-20 mx-auto text-[--twist-teal] animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-[#333] fade-in-up delay-1">
+            תודה על המענה!
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-gray-600 mb-6 font-light fade-in-up delay-1">
+            אנו מעריכים את הזמן שלך.
+        </p>
+
+        <div class="twist-line fade-in-up delay-2"></div>
+
+        <div class="bg-white/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-100 mb-10 fade-in-up delay-2 shadow-sm">
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                שם הזוכה בהגרלה יפורסם בניוזלטר הבא,<br>
+                <span class="font-semibold text-[--twist-red]">אז כדאי להישאר בסביבה.</span>
+            </p>
+        </div>
+
+       
+        <div class="fade-in-up delay-3">
+            <h3 class="text-lg text-gray-500 mb-4">יש לך מחשבות נוספות?</h3>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=twist1@twist1.co.il&su=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9C%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%98%D7%95%D7%95%D7%99%D7%A1%D7%98"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-twist inline-block px-10 py-4 rounded-full text-xl font-bold tracking-wide">
+                נשמח לשמוע
+            </a>
+        </div>
+    </main>
+
+    <footer class="mt-20 text-gray-400 text-sm fade-in-up delay-3">
+        © 2026 טוויסט - מגזין תוכן שובר שגרה
+    </footer>
+
+</body>
+</html>
